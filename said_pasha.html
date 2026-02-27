@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سعيد باشا - الحياة الاقتصادية والجيش والأسطول</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a472a;
+            --secondary-color: #d4af37;
+            --accent-color: #8b5a3c;
+            --light-bg: #f5f1e8;
+            --text-dark: #2c2c2c;
+            --text-light: #666666;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.8;
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2d5a3d 100%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--secondary-color) !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            font-weight: 600;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2d5a3d 50%, var(--accent-color) 100%);
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #e8c547;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+            color: var(--primary-color);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            border: none;
+            padding: 1.5rem;
+        }
+
+        .card-header h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            background-color: #ffffff;
+        }
+
+        .card-body p {
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        /* Icon Styling */
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Tabs */
+        .nav-tabs {
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .nav-tabs .nav-link {
+            color: var(--text-light);
+            border: none;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-tabs .nav-link:hover {
+            color: var(--primary-color);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color);
+            background-color: transparent;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .tab-content {
+            padding: 2rem 0;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--secondary-color), var(--accent-color));
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-right: 100px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: 15px;
+            top: 5px;
+            width: 30px;
+            height: 30px;
+            background: var(--secondary-color);
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        footer h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: #b0b0b0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .timeline::before {
+                right: 20px;
+            }
+
+            .timeline-item {
+                padding-right: 70px;
+            }
+
+            .timeline-item::before {
+                right: 5px;
+            }
+        }
+
+        /* Utility Classes */
+        .text-gold {
+            color: var(--secondary-color);
+        }
+
+        .bg-light-gold {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-crown"></i> سعيد باشا
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#economy">الحياة الاقتصادية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#military">الجيش والأسطول</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#timeline">المحطات التاريخية</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 hero-content">
+                    <h1>سعيد باشا</h1>
+                    <p class="lead">والي مصر من 1854 إلى 1863</p>
+                    <p>فترة تاريخية مهمة شهدت تطورات اقتصادية وعسكرية كبيرة في مصر الحديثة</p>
+                    <a href="#economy" class="btn btn-primary">اكتشف المزيد</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="icon-box" style="width: 150px; height: 150px; font-size: 4rem; margin: 0 auto;">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economic Life Section -->
+    <section class="section bg-white" id="economy">
+        <div class="container">
+            <h2 class="section-title">الحياة الاقتصادية</h2>
+            <p class="section-subtitle">التطورات الاقتصادية والإصلاحات المالية في عهد سعيد باشا</p>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="agriculture-tab" data-bs-toggle="tab" data-bs-target="#agriculture" type="button">الزراعة</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="industry-tab" data-bs-toggle="tab" data-bs-target="#industry" type="button">الصناعة</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="trade-tab" data-bs-toggle="tab" data-bs-target="#trade" type="button">التجارة</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance" type="button">الموارد المالية</button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <!-- Agriculture Tab -->
+                <div class="tab-pane fade show active" id="agriculture" role="tabpanel">
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h4>إصلاحات زراعية</h4>
+                            <p>اهتم سعيد باشا بإصلاح أحوال الفلاحين وخفض الضرائب على الأرض الزراعية، مما أدى إلى تحسين أوضاعهم المعيشية بشكل كبير.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-scroll"></i>
+                            </div>
+                            <h4>اللائحة السعيدية</h4>
+                            <p>منح الفلاحين حق تملك الأرض بموجب اللائحة السعيدية الصادرة في 5 أغسطس 1858، مما شعرهم بالراحة والطمأنينة.</p>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>المشاريع الزراعية الكبرى</h5>
+                            <p>اعتنى سعيد باشا بزراعة المحمودية وطورها لتلبية احتياجات الري والزراعة، مما ساهم في زيادة الإنتاجية الزراعية بشكل ملحوظ.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry Tab -->
+                <div class="tab-pane fade" id="industry" role="tabpanel">
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h4>الصناعات الحربية</h4>
+                            <p>ازدهرت الصناعات الحربية نتيجة لاشتراك مصر في حرب القرم بأمر السلطان العثماني، مما أدى إلى تطور تكنولوجي ملحوظ.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4>التحديات الصناعية</h4>
+                            <p>بينما ظلت الصناعات الأخرى متأخرة لعدم قدرتها على منافسة الإنتاج الأجنبي الذي يدفق على السوق المصرية.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trade Tab -->
+                <div class="tab-pane fade" id="trade" role="tabpanel">
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <h4>توسيع التجارة</h4>
+                            <p>السماح للتجار بالاتجار داخل مصر والتصدير للخارج، مما فتح آفاقاً جديدة للنمو الاقتصادي.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-train"></i>
+                            </div>
+                            <h4>البنية التحتية</h4>
+                            <p>إنشاء أول خط حديدي بين القاهرة والإسكندرية ثم خط آخر بين القاهرة والسويس، مما سهل النقل والتجارة.</p>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>قناة السويس</h6>
+                            <p>منح ديليسيس امتياز حفر قناة السويس واستثمارها لمدة 99 سنة من تاريخ افتتاح القناة للملاحة.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>الملاحة</h6>
+                            <p>تأسيس شركتان للملاحة بحرية وأخرى نيلية لتسهيل النقل والتجارة الداخلية والخارجية.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>الطرق</h6>
+                            <p>الاهتمام بالطرق البرية وتوسيع شبكة الطرد والبريد لربط أنحاء البلاد.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finance Tab -->
+                <div class="tab-pane fade" id="finance" role="tabpanel">
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-piggy-bank"></i>
+                            </div>
+                            <h4>الموارد المالية</h4>
+                            <p>كانت مصر تعاني من نقص الموارد المالية بعد سقوط الاستبداد والاستدانة، فاضطر سعيد باشا للاستدانة من الخارج.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-bank"></i>
+                            </div>
+                            <h4>القروض الأجنبية</h4>
+                            <p>كان سعيد باشا أول من فتح باب الاستدانة من البنوك الأجنبية التي أنشئت في الإسكندرية.</p>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="bg-light-gold p-4 rounded">
+                        <h5>تفاصيل القروض</h5>
+                        <ul class="list-unstyled">
+                            <li><strong>عام 1860:</strong> قرض من بنك فرنسي بقيمة 1.2 مليون جنيه بفائدة 15-18%</li>
+                            <li><strong>عام 1862:</strong> قرض من بنك ألماني بقيمة 2.5 مليون جنيه بضمان حصيلة ضريبة الأطيان الزراعية</li>
+                            <li><strong>عام 1863:</strong> الحكومة المصرية مديونة بنحو 8 مليون جنيه على 30 سنة</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Military Section -->
+    <section class="section" id="military">
+        <div class="container">
+            <h2 class="section-title">الجيش والأسطول</h2>
+            <p class="section-subtitle">الإصلاحات العسكرية والبحرية في عهد سعيد باشا</p>
+
+            <div class="row mt-5">
+                <!-- Army Card -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-shield-alt"></i> الجيش</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="text-gold mb-3">الإصلاحات العسكرية</h6>
+                            <p>أمر سعيد باشا بدخول أولاد مشايخ البلاد وأقاربهم في المسكرية والعسكرية، مما أدى إلى دخول أحمد عرابي وأمثاله في سلك الجندية.</p>
+                            
+                            <h6 class="text-gold mt-3 mb-2">تقصير مدة الخدمة</h6>
+                            <p>قرار الخديوي توفيق بتقصير مدة الخدمة العسكرية على جميع الشباب على اختلاف طبقاتهم، فجعل متوسط الخدمة سنة واحدة فقط.</p>
+                            
+                            <h6 class="text-gold mt-3 mb-2">الطمأنينة والاستقرار</h6>
+                            <p>أدى هذا الإجراء إلى إدخال الطمأنينة في نفوس الناس على مصير أبنائهم المجندين.</p>
+                            
+                            <h6 class="text-gold mt-3 mb-2">ترقية الضباط</h6>
+                            <p>كان سعيد ميالاً إلى ترقية الضباط المصريين، مما رفع من معنوياتهم وكفاءتهم العسكرية.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navy Card -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-water"></i> الأسطول</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="text-gold mb-3">الاهتمام بالقوة البحرية</h6>
+                            <p>حاول سعيد باشا الاهتمام بالأسطول وإعادة بناء القوة البحرية المصرية، مدركاً أهمية السيطرة البحرية.</p>
+                            
+                            <h6 class="text-gold mt-3 mb-2">التحديات الخارجية</h6>
+                            <p>إلا أن الإنجليز أوعزوا للسلطان العثماني أن يمنع سعيد باشا من تجديد الأسطول، مما حد من طموحاته البحرية.</p>
+                            
+                            <h6 class="text-gold mt-3 mb-2">الأهمية الاستراتيجية</h6>
+                            <p>رغم التحديات، كانت محاولات سعيد باشا لتقوية الأسطول تعكس فهمه العميق لأهمية القوة البحرية في حماية مصر.</p>
+                            
+                            <div class="alert alert-info mt-3">
+                                <i class="fas fa-info-circle"></i> كانت هذه الفترة بداية التدخل الأجنبي في الشؤون العسكرية المصرية.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section bg-white" id="timeline">
+        <div class="container">
+            <h2 class="section-title">المحطات التاريخية المهمة</h2>
+            <p class="section-subtitle">أهم الأحداث والإنجازات في عهد سعيد باشا</p>
+
+            <div class="timeline mt-5">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1854</div>
+                        <h5>بداية ولاية سعيد باشا</h5>
+                        <p>تولي سعيد باشا حكم مصر وبدء فترة من الإصلاحات الاقتصادية والاجتماعية.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1856</div>
+                        <h5>الخط الحديدي الأول</h5>
+                        <p>إنشاء أول خط حديدي في مصر بين القاهرة والإسكندرية، مما ثورة النقل والتجارة.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1858</div>
+                        <h5>اللائحة السعيدية</h5>
+                        <p>إصدار اللائحة السعيدية في 5 أغسطس التي منحت الفلاحين حق تملك الأرض الزراعية.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1860</div>
+                        <h5>أول قرض أجنبي</h5>
+                        <p>عقد أول قرض خارجي من بنك فرنسي بقيمة 1.2 مليون جنيه لتمويل المشاريع التنموية.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1863</div>
+                        <h5>نهاية الولاية</h5>
+                        <p>انتهاء ولاية سعيد باشا، تاركاً إرثاً من الإصلاحات والمشاريع التنموية المهمة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>عن هذا الموقع</h5>
+                    <p>موقع تعليمي شامل يقدم معلومات مفصلة عن حياة وإنجازات سعيد باشا والي مصر من 1854 إلى 1863.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>الأقسام الرئيسية</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#economy">الحياة الاقتصادية</a></li>
+                        <li><a href="#military">الجيش والأسطول</a></li>
+                        <li><a href="#timeline">المحطات التاريخية</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>روابط مفيدة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="ismail_khedive.html">الخديوي إسماعيل</a></li>
+                        <li><a href="arabi_revolution.html">الثورة العرابية</a></li>
+                        <li><a href="#home">التاريخ المصري</a></li>
+                        <li><a href="#home">الحقبة الحديثة</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026      تم الانشاء بواسطه محمد الفقي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

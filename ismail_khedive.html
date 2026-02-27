@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخديوي إسماعيل - الحياة الاقتصادية والجيش والأسطول</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a3a52;
+            --secondary-color: #e8b923;
+            --accent-color: #c17a3a;
+            --light-bg: #f8f6f1;
+            --text-dark: #2c2c2c;
+            --text-light: #666666;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.8;
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2d4f6a 100%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--secondary-color) !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            font-weight: 600;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2d4f6a 50%, var(--accent-color) 100%);
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: rgba(232, 185, 35, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #f5c947;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(232, 185, 35, 0.3);
+            color: var(--primary-color);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            border: none;
+            padding: 1.5rem;
+        }
+
+        .card-header h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            background-color: #ffffff;
+        }
+
+        .card-body p {
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        /* Icon Styling */
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Tabs */
+        .nav-tabs {
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .nav-tabs .nav-link {
+            color: var(--text-light);
+            border: none;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-tabs .nav-link:hover {
+            color: var(--primary-color);
+            background-color: rgba(232, 185, 35, 0.1);
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color);
+            background-color: transparent;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .tab-content {
+            padding: 2rem 0;
+        }
+
+        /* Achievements Grid */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .achievement-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--secondary-color), var(--accent-color));
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-right: 100px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: 15px;
+            top: 5px;
+            width: 30px;
+            height: 30px;
+            background: var(--secondary-color);
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        footer h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: #b0b0b0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .timeline::before {
+                right: 20px;
+            }
+
+            .timeline-item {
+                padding-right: 70px;
+            }
+
+            .timeline-item::before {
+                right: 5px;
+            }
+        }
+
+        /* Utility Classes */
+        .text-gold {
+            color: var(--secondary-color);
+        }
+
+        .bg-light-gold {
+            background-color: rgba(232, 185, 35, 0.1);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+            margin: 2rem 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(232, 185, 35, 0.1), rgba(193, 122, 58, 0.1));
+            border-right: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-crown"></i> الخديوي إسماعيل
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#economy">الحياة الاقتصادية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#military">الجيش والأسطول</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements">الإنجازات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">المؤسسات التعليمية</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 hero-content">
+                    <h1>الخديوي إسماعيل</h1>
+                    <p class="lead">خديوي مصر من 1863 إلى 1879</p>
+                    <p>فترة حافلة بالإصلاحات الاقتصادية الكبرى وافتتاح قناة السويس وتحديث الجيش والأسطول</p>
+                    <a href="#economy" class="btn btn-primary">اكتشف الإنجازات</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="icon-box" style="width: 150px; height: 150px; font-size: 4rem; margin: 0 auto;">
+                        <i class="fas fa-city"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economic Life Section -->
+    <section class="section bg-white" id="economy">
+        <div class="container">
+            <h2 class="section-title">الحياة الاقتصادية</h2>
+            <p class="section-subtitle">التطورات الاقتصادية الكبرى والمشاريع التنموية في عهد الخديوي إسماعيل</p>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="agriculture-tab" data-bs-toggle="tab" data-bs-target="#agriculture" type="button">الزراعة</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="industry-tab" data-bs-toggle="tab" data-bs-target="#industry" type="button">الصناعة</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="trade-tab" data-bs-toggle="tab" data-bs-target="#trade" type="button">التجارة والقناة</button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <!-- Agriculture Tab -->
+                <div class="tab-pane fade show active" id="agriculture" role="tabpanel">
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <h4>مشاريع الري الكبرى</h4>
+                            <p>كان أول ما وجه إليه الخديوي إسماعيل اهتمامه هو العمل على إنماء ثروة مصر الزراعية بتوفير وسائل الري الحديثة.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h4>زيادة الإنتاجية</h4>
+                            <p>كانت لهذه الوسائل الفضل الكبير في زيادة إنتاج الأراضي المزروعة وإحياء موات الأراضي القابلة للزراعة.</p>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="highlight-box">
+                        <h5>ترعة الإبراهيمية</h5>
+                        <p>تعد ترعة الإبراهيمية من أعظم منشآت الري في العالم قاطبة وقت إنشاؤها. تبدأ من النيل عند أسيوط وتنتهي عند (أشمون) بمديرية بني سويف ويبلغ طولها 267 كم.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h5>ترعة الإسماعيلية</h5>
+                        <p>اهتم بشق الترع لتوفير مياه الري مثل ترعة الإسماعيلية، وكانت هذه المشاريع من أهم إنجازات عهده.</p>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <div class="achievement-card">
+                                <div class="achievement-number">3.8</div>
+                                <p>مليون فدان في عهد سعيد</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="achievement-card">
+                                <div class="achievement-number">4.8</div>
+                                <p>مليون فدان في عهد إسماعيل</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="achievement-card">
+                                <div class="achievement-number">+1</div>
+                                <p>مليون فدان إضافي</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry Tab -->
+                <div class="tab-pane fade" id="industry" role="tabpanel">
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h4>الصناعات الحربية</h4>
+                            <p>بدأ الانتعاش الصناعي خاصة الصناعات الحربية بسبب زيادة عدد الجيش والاهتمام بالقوة العسكرية.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="fas fa-sugar-cane"></i>
+                            </div>
+                            <h4>صناعات متنوعة</h4>
+                            <p>أنشأ مصانع لحلج وغزل ونسج القطن واستخراج الزيوت ودباغ الجلود والورق والسكر.</p>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>مصانع القطن</h5>
+                            <p>أنشأ إسماعيل عدة مصانع حديثة لحلج وغزل ونسج القطن، مستفيداً من ارتفاع أسعار القطن في السوق العالمية.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>مصانع السكر</h5>
+                            <p>أنشأ عدة مصانع للسكر في الوجه القبلي، مما ساهم في تنويع الصناعات المصرية.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trade Tab -->
+                <div class="tab-pane fade" id="trade" role="tabpanel">
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <div class="icon-box">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <h4 class="text-center">قناة السويس - الإنجاز الأعظم</h4>
+                            <p class="text-center">تم في عهد إسماعيل فتح قناة السويس في 1869م وأقيمت احتفالات أسطورية لم يشهد التاريخ مثيلاً لها.</p>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="highlight-box">
+                        <h5><i class="fas fa-info-circle"></i> أهمية قناة السويس</h5>
+                        <p>كانت قناة السويس ثورة في التجارة العالمية، حيث اختصرت المسافة بين أوروبا والهند وآسيا بشكل كبير، مما زاد من أهمية مصر الاستراتيجية.</p>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>الأسطول التجاري</h5>
+                            <p>اهتم إسماعيل بالأسطول التجاري وأنشأ شركة للملاحة التجارية التي ساهمت في تنشيط حركة التجارة الخارجية.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>التحديات المالية</h5>
+                            <p>اضطر إسماعيل للتوسع في الاقتراض من الخارج بصورة كبيرة أدت لحدوث أزمة مالية واضطر لبيع أسهمه في القناة للإنجليز.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Military Section -->
+    <section class="section" id="military">
+        <div class="container">
+            <h2 class="section-title">الجيش والأسطول</h2>
+            <p class="section-subtitle">الإصلاحات العسكرية والبحرية في عهد الخديوي إسماعيل</p>
+
+            <div class="row mt-5">
+                <!-- Army Card -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-shield-alt"></i> الجيش</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="text-gold mb-3">توسيع الجيش</h6>
+                            <p>اشترى من السلطان فرمان 1866م بزيادة عدد الجيش إلى 30 ألف بعد أن كان 18 ألف، مما عزز القوة العسكرية المصرية.</p>
+                            
+                            <h6 class="text-gold mt-3 mb-2">البعثات التدريبية</h6>
+                            <p>أرسل بعثة حربية إلى فرنسا لاكتساب الخبرات اللازمة وتقييس الخبرات العسكرية الحديثة.</p>
+                            
+                            <h6 class="text-gold mt-3 mb-2">المدارس الحربية</h6>
+                            <p>أحضر بعثة حربية من الضباط الفرنسيين لتنظيم المدارس الحربية وتطوير المناهج العسكرية.</p>
+                            
+                            <h6 class="text-gold mt-3 mb-2">التثقيف العسكري</h6>
+                            <p>أصدر صحيفتين للشؤون العسكرية من أجل تثقيف عقول العسكريين وتطوير الفكر العسكري.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navy Card -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-water"></i> الأسطول</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="text-gold mb-3">تجديد الترسانة البحرية</h6>
+                            <p>جدد التزسانة البحرية في الإسكندرية بأحدث التقنيات والمعدات البحرية الحديثة.</p>
+                            
+                            <h6 class="text-gold mt-3 mb-2">المدرسة البحرية</h6>
+                            <p>أقام بجوار الترسانة مدرسة بحرية أخرى لتدريب الضباط والبحارة على أحدث الأساليب البحرية.</p>
+                            
+                            <h6 class="text-gold mt-3 mb-2">التحديات المالية</h6>
+                            <p>بسبب الأزمة المالية وضعف الموارد، واجه الأسطول تحديات في الاستمرار في التطور والتحديث.</p>
+                            
+                            <h6 class="text-gold mt-3 mb-2">التدخل الأجنبي</h6>
+                            <p>ارتبكت أحوال الحكومة المصرية نتيجة للتدخل الأجنبي في الشؤون العسكرية والاقتصادية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section bg-white" id="achievements">
+        <div class="container">
+            <h2 class="section-title">الإنجازات الكبرى</h2>
+            <p class="section-subtitle">أهم المشاريع والإنجازات في عهد الخديوي إسماعيل</p>
+
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <div class="icon-box" style="width: 80px; height: 80px; font-size: 2rem; margin: 0 auto 1rem;">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h5>ترعة الإبراهيمية</h5>
+                    <p>أطول ترعة في العالم بطول 267 كم، تنقل مياه النيل من أسيوط إلى الوجه البحري.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="icon-box" style="width: 80px; height: 80px; font-size: 2rem; margin: 0 auto 1rem;">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h5>قناة السويس</h5>
+                    <p>افتتحت عام 1869 وأصبحت أهم ممر مائي عالمي، ربطت البحر المتوسط بالبحر الأحمر.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="icon-box" style="width: 80px; height: 80px; font-size: 2rem; margin: 0 auto 1rem;">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h5>الصناعات الحديثة</h5>
+                    <p>أنشأ مصانع حديثة للقطن والسكر والزيوت والجلود، مما نوع الاقتصاد المصري.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="icon-box" style="width: 80px; height: 80px; font-size: 2rem; margin: 0 auto 1rem;">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h5>الجيش الحديث</h5>
+                    <p>زيادة عدد الجيش إلى 30 ألف جندي وتحديث المدارس والمعدات العسكرية.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="icon-box" style="width: 80px; height: 80px; font-size: 2rem; margin: 0 auto 1rem;">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h5>التجارة العالمية</h5>
+                    <p>زيادة المساحات الزراعية وخاصة القطن الذي احتاجه السوق الأوروبية وارتفعت أسعاره.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="icon-box" style="width: 80px; height: 80px; font-size: 2rem; margin: 0 auto 1rem;">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h5>التعليم العسكري</h5>
+                    <p>إنشاء مدارس حربية حديثة وإرسال بعثات تدريبية إلى الخارج لتطوير الكفاءات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section bg-white">
+        <div class="container">
+            <h2 class="section-title">المحطات التاريخية المهمة</h2>
+            <p class="section-subtitle">أهم الأحداث والإنجازات في عهد الخديوي إسماعيل</p>
+
+            <div class="timeline mt-5">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1863</div>
+                        <h5>بداية خلافة الخديوي إسماعيل</h5>
+                        <p>تولي الخديوي إسماعيل حكم مصر وبدء فترة من الإصلاحات الاقتصادية والعسكرية الكبرى.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1866</div>
+                        <h5>توسيع الجيش</h5>
+                        <p>الحصول على فرمان من السلطان لزيادة عدد الجيش من 18 ألف إلى 30 ألف جندي.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1867</div>
+                        <h5>ترعة الإبراهيمية</h5>
+                        <p>إنشاء ترعة الإبراهيمية الشهيرة، أطول ترعة في العالم بطول 267 كم.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1869</div>
+                        <h5>افتتاح قناة السويس</h5>
+                        <p>افتتاح قناة السويس في احتفالات أسطورية، مما جعل مصر مركزاً استراتيجياً عالمياً.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1870-1875</div>
+                        <h5>الأزمة المالية</h5>
+                        <p>تفاقم الأزمة المالية بسبب الاقتراض الكثيف، مما أدى إلى بيع أسهم قناة السويس للإنجليز.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1879</div>
+                        <h5>نهاية الخلافة</h5>
+                        <p>عزل الخديوي إسماعيل بسبب الأزمة المالية والتدخل الأجنبي، تاركاً إرثاً حافلاً بالإنجازات.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section bg-white" id="education">
+        <div class="container">
+            <h2 class="section-title">المؤسسات التعليمية</h2>
+            <p class="section-subtitle">الإصلاحات التعليمية والمؤسسات التي أنشأها الخديوي إسماعيل</p>
+
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-book"></i> المدارس الحديثة</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="text-gold mb-3">الاهتمام بالتعليم</h6>
+                            <p>أولى الخديوي إسماعيل اهتماماً كبيراً بالتعليم وإنشاء المدارس الحديثة لتطوير الكفاءات المصرية.</p>
+                            <h6 class="text-gold mt-3 mb-2">المدارس الابتدائية والثانوية</h6>
+                            <p>أنشأ عدداً من المدارس الابتدائية والثانوية في مختلف أنحاء مصر لنشر التعليم بين الشعب.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>عن هذا الموقع</h5>
+                    <p>موقع تعليمي شامل يقدم معلومات مفصلة عن حياة وإنجازات الخديوي إسماعيل والي مصر من 1863 إلى 1879.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>الأقسام الرئيسية</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#economy">الحياة الاقتصادية</a></li>
+                        <li><a href="#military">الجيش والأسطول</a></li>
+                        <li><a href="#achievements">الإنجازات</a></li>
+                        <li><a href="#education">المؤسسات التعليمية</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>روابط مفيدة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="said_pasha.html">سعيد باشا</a></li>
+                        <li><a href="arabi_revolution.html">الثورة العرابية</a></li>
+                        <li><a href="#home">التاريخ المصري</a></li>
+                        <li><a href="#home">الحقبة الحديثة</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026      تم الانشاء بواسطه محمد الفقي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card, .timeline-item, .achievement-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
