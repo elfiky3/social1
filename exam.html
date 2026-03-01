@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار التاريخ المصري الحديث</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a472a;
+            --secondary-color: #d4af37;
+            --accent-color: #8b5a3c;
+            --light-bg: #f5f1e8;
+            --text-dark: #2c2c2c;
+            --text-light: #666666;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.8;
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2d5a3d 100%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--secondary-color) !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            font-weight: 600;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2d5a3d 50%, var(--accent-color) 100%);
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Main Container */
+        .container-main {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Section Styles */
+        .exam-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .section-title i {
+            color: var(--secondary-color);
+            margin-left: 0.5rem;
+        }
+
+        .question-group-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 2rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .question {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #fafaf7;
+            border-radius: 10px;
+            border-right: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .question:hover {
+            background: #f0ebe0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .question-text {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .option {
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: var(--secondary-color);
+            background: #fffef9;
+        }
+
+        .option input[type="radio"],
+        .option input[type="checkbox"] {
+            margin-left: 0.8rem;
+            cursor: pointer;
+        }
+
+        .option label {
+            margin: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .true-false-option {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .true-false-option label {
+            flex: 1;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            text-align: start;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .true-false-option label:hover {
+            border-color: var(--secondary-color);
+            background: #fffef9;
+        }
+
+        .true-false-option input[type="radio"] {
+            margin: 0 0.5rem 0 0;
+        }
+
+        /* Button Styles */
+        .btn-check-section {
+            background: linear-gradient(135deg, #d4af37 0%, #e6c547 100%);
+            color: #1a472a;
+            border: 3px solid #1a472a;
+            padding: 1.5rem 3.5rem;
+            font-size: 1.2rem;
+            font-weight: 900;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            display: block;
+            margin: 2rem auto;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: auto;
+        }
+
+        .btn-check-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+            color: #1a472a;
+            text-decoration: none;
+            background: linear-gradient(135deg, #e6c547 0%, #d4af37 100%);
+        }
+
+        .btn-check-section:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-reset {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2d5a3d 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(26, 71, 42, 0.3);
+        }
+
+        .btn-reset:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(26, 71, 42, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Result Box */
+        .result-box {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(26, 71, 42, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+            display: none;
+        }
+
+        .result-box.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-score {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .result-percentage {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .result-message {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-right: 4px solid var(--secondary-color);
+        }
+
+        .nav-buttons {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2d5a3d 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .exam-section {
+                padding: 1.5rem;
+            }
+
+            .true-false-option {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .btn-check-section {
+                padding: 1.2rem 2.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-book-open"></i> التاريخ المصري الحديث
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="said_pasha.html">سعيد باشا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ismail_khedive.html">الخديوي إسماعيل</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="arabi_revolution.html">الثورة العرابية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="exam.html">الاختبار</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1><i class="fas fa-graduation-cap"></i> اختبار التاريخ المصري الحديث</h1>
+            <p>قيّم معلوماتك عن سعيد باشا والخديوي إسماعيل والثورة العرابية</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container-main">
+        
+        <!-- القسم الأول: سعيد باشا -->
+        <div class="exam-section" id="section1">
+            <h2 class="section-title"><i class="fas fa-landmark"></i> القسم الأول: سعيد باشا (1854-1863)</h2>
+            
+            <!-- أسئلة اختيارية -->
+            <div class="question-group-title">الأسئلة الاختيارية (10 أسئلة):</div>
+            
+            <div class="question">
+                <div class="question-text">1. في أي سنة صدرت "اللائحة السعيدية" التي منحت الفلاحين حق تملك الأرض؟</div>
+                <div class="option"><label><input type="radio" name="q1_s1" value="a"> 1854</label></div>
+                <div class="option"><label><input type="radio" name="q1_s1" value="b"> 1858</label></div>
+                <div class="option"><label><input type="radio" name="q1_s1" value="c"> 1862</label></div>
+                <div class="option"><label><input type="radio" name="q1_s1" value="d"> 1863</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. ما هي نسبة أسهم قناة السويس التي حصلت عليها مصر حسب الامتياز الأول (1854)؟</div>
+                <div class="option"><label><input type="radio" name="q2_s1" value="a"> 25%</label></div>
+                <div class="option"><label><input type="radio" name="q2_s1" value="b"> 44%</label></div>
+                <div class="option"><label><input type="radio" name="q2_s1" value="c"> 50%</label></div>
+                <div class="option"><label><input type="radio" name="q2_s1" value="d"> 60%</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. كم كانت مدة امتياز قناة السويس من تاريخ افتتاحها للملاحة؟</div>
+                <div class="option"><label><input type="radio" name="q3_s1" value="a"> 50 سنة</label></div>
+                <div class="option"><label><input type="radio" name="q3_s1" value="b"> 75 سنة</label></div>
+                <div class="option"><label><input type="radio" name="q3_s1" value="c"> 99 سنة</label></div>
+                <div class="option"><label><input type="radio" name="q3_s1" value="d"> 120 سنة</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. ما هي نسبة أرباح قناة السويس التي كانت من نصيب مصر؟</div>
+                <div class="option"><label><input type="radio" name="q4_s1" value="a"> 5%</label></div>
+                <div class="option"><label><input type="radio" name="q4_s1" value="b"> 10%</label></div>
+                <div class="option"><label><input type="radio" name="q4_s1" value="c"> 15%</label></div>
+                <div class="option"><label><input type="radio" name="q4_s1" value="d"> 20%</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">5. ما هي أهم محاصيل الزراعة التي اهتم سعيد باشا بتطويرها؟</div>
+                <div class="option"><label><input type="radio" name="q5_s1" value="a"> القطن والقمح والأرز</label></div>
+                <div class="option"><label><input type="radio" name="q5_s1" value="b"> الذرة والشعير فقط</label></div>
+                <div class="option"><label><input type="radio" name="q5_s1" value="c"> البلح والتمر</label></div>
+                <div class="option"><label><input type="radio" name="q5_s1" value="d"> الخضروات فقط</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">6. من الذي أول من فتح باب الاستدانة من البنوك الأجنبية في مصر؟</div>
+                <div class="option"><label><input type="radio" name="q6_s1" value="a"> محمد علي</label></div>
+                <div class="option"><label><input type="radio" name="q6_s1" value="b"> سعيد باشا</label></div>
+                <div class="option"><label><input type="radio" name="q6_s1" value="c"> الخديوي إسماعيل</label></div>
+                <div class="option"><label><input type="radio" name="q6_s1" value="d"> أحمد عرابي</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">7. ما هو نظام الالتزام العثماني الذي كان سائداً قبل إصلاحات سعيد باشا؟</div>
+                <div class="option"><label><input type="radio" name="q7_s1" value="a"> نظام توزيع الأراضي على الفلاحين</label></div>
+                <div class="option"><label><input type="radio" name="q7_s1" value="b"> نظام جمع الضرائب من الفلاحين والأراضي</label></div>
+                <div class="option"><label><input type="radio" name="q7_s1" value="c"> نظام التعليم الحديث</label></div>
+                <div class="option"><label><input type="radio" name="q7_s1" value="d"> نظام الجيش والأسطول</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">8. ما هي نتيجة دخول أحمد عرابي وأمثاله إلى سلك الجندية في عهد سعيد باشا؟</div>
+                <div class="option"><label><input type="radio" name="q8_s1" value="a"> تحسن الجيش المصري</label></div>
+                <div class="option"><label><input type="radio" name="q8_s1" value="b"> صدام بين المصريين والشركس وأدى للثورة العرابية</label></div>
+                <div class="option"><label><input type="radio" name="q8_s1" value="c"> تحسين الخدمة العسكرية</label></div>
+                <div class="option"><label><input type="radio" name="q8_s1" value="d"> لم يكن لها أي تأثير</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">9. كم كانت مدة الخدمة العسكرية التي حددها سعيد باشا للجنود؟</div>
+                <div class="option"><label><input type="radio" name="q9_s1" value="a"> 3 سنوات</label></div>
+                <div class="option"><label><input type="radio" name="q9_s1" value="b"> سنة واحدة</label></div>
+                <div class="option"><label><input type="radio" name="q9_s1" value="c"> 5 سنوات</label></div>
+                <div class="option"><label><input type="radio" name="q9_s1" value="d"> سنتان</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">10. ما هي الصناعات التي ازدهرت في عهد سعيد باشا؟</div>
+                <div class="option"><label><input type="radio" name="q10_s1" value="a"> جميع الصناعات</label></div>
+                <div class="option"><label><input type="radio" name="q10_s1" value="b"> الصناعات الحرية فقط</label></div>
+                <div class="option"><label><input type="radio" name="q10_s1" value="c"> الصناعات الثقيلة</label></div>
+                <div class="option"><label><input type="radio" name="q10_s1" value="d"> الصناعات الغذائية</label></div>
+            </div>
+
+            <!-- أسئلة صح/غلط -->
+            <div class="question-group-title">أسئلة صح/غلط (5 أسئلة):</div>
+
+            <div class="question">
+                <div class="question-text">1. قناة السويس تم افتتاحها في عهد سعيد باشا</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf1_s1" value="false"> صح</label>
+                    <label><input type="radio" name="tf1_s1" value="true"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. كان محمد علي يرفض سياسة القروض الخارجية بينما اعتمد عليها سعيد باشا</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf2_s1" value="true"> صح</label>
+                    <label><input type="radio" name="tf2_s1" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. منح سعيد باشا ديليسيس امتياز قناة السويس لمدة 99 سنة من تاريخ افتتاحها</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf3_s1" value="true"> صح</label>
+                    <label><input type="radio" name="tf3_s1" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. الديون الخارجية لم تزد في عهد سعيد باشا</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf4_s1" value="false"> صح</label>
+                    <label><input type="radio" name="tf4_s1" value="true"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">5. شعر الفلاحون بالراحة والطمأنينة بعد إصلاحات سعيد باشا</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf5_s1" value="true"> صح</label>
+                    <label><input type="radio" name="tf5_s1" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <button class="btn-check-section" onclick="checkSection1()">تصحيح إجابات سعيد باشا</button>
+
+            <div class="result-box" id="result1">
+                <div class="result-score" id="score1">0/15</div>
+                <div class="result-percentage" id="percentage1">0%</div>
+                <div class="result-message" id="message1"></div>
+                <div class="nav-buttons">
+                    <button class="btn-reset" onclick="resetSection1()">إعادة الإجابة</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- القسم الثاني: الخديوي إسماعيل -->
+        <div class="exam-section" id="section2">
+            <h2 class="section-title"><i class="fas fa-crown"></i> القسم الثاني: الخديوي إسماعيل (1863-1879)</h2>
+            
+            <!-- أسئلة اختيارية -->
+            <div class="question-group-title">الأسئلة الاختيارية (10 أسئلة):</div>
+            
+            <div class="question">
+                <div class="question-text">1. كم كانت مساحة الأراضي المزروعة في أواخر عهد محمد علي؟</div>
+                <div class="option"><label><input type="radio" name="q1_s2" value="a"> 2,500,000 فدان</label></div>
+                <div class="option"><label><input type="radio" name="q1_s2" value="b"> 3,856,000 فدان</label></div>
+                <div class="option"><label><input type="radio" name="q1_s2" value="c"> 4,000,000 فدان</label></div>
+                <div class="option"><label><input type="radio" name="q1_s2" value="d"> 5,000,000 فدان</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. كم بلغت مساحة الأراضي المزروعة في أواخر عهد الخديوي إسماعيل؟</div>
+                <div class="option"><label><input type="radio" name="q2_s2" value="a"> 3,856,000 فدان</label></div>
+                <div class="option"><label><input type="radio" name="q2_s2" value="b"> 4,000,000 فدان</label></div>
+                <div class="option"><label><input type="radio" name="q2_s2" value="c"> 4,810,000 فدان</label></div>
+                <div class="option"><label><input type="radio" name="q2_s2" value="d"> 5,500,000 فدان</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. في أي سنة تم افتتاح قناة السويس؟</div>
+                <div class="option"><label><input type="radio" name="q3_s2" value="a"> 1867</label></div>
+                <div class="option"><label><input type="radio" name="q3_s2" value="b"> 1869</label></div>
+                <div class="option"><label><input type="radio" name="q3_s2" value="c"> 1871</label></div>
+                <div class="option"><label><input type="radio" name="q3_s2" value="d"> 1873</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. ما هي نسبة أسهم قناة السويس التي باعها إسماعيل لإنجلترا؟</div>
+                <div class="option"><label><input type="radio" name="q4_s2" value="a"> 25%</label></div>
+                <div class="option"><label><input type="radio" name="q4_s2" value="b"> 44%</label></div>
+                <div class="option"><label><input type="radio" name="q4_s2" value="c"> 50%</label></div>
+                <div class="option"><label><input type="radio" name="q4_s2" value="d"> 60%</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">5. في أي سنة أصدر إسماعيل قانون المقابلة؟</div>
+                <div class="option"><label><input type="radio" name="q5_s2" value="a"> 1869</label></div>
+                <div class="option"><label><input type="radio" name="q5_s2" value="b"> 1871</label></div>
+                <div class="option"><label><input type="radio" name="q5_s2" value="c"> 1873</label></div>
+                <div class="option"><label><input type="radio" name="q5_s2" value="d"> 1875</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">6. كم كان طول ترعة الإبراهيمية؟</div>
+                <div class="option"><label><input type="radio" name="q6_s2" value="a"> 150 كم</label></div>
+                <div class="option"><label><input type="radio" name="q6_s2" value="b"> 200 كم</label></div>
+                <div class="option"><label><input type="radio" name="q6_s2" value="c"> 267 كم</label></div>
+                <div class="option"><label><input type="radio" name="q6_s2" value="d"> 300 كم</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">7. كم زاد عدد الجيش المصري في عهد إسماعيل بموجب فرمان السلطان 1866؟</div>
+                <div class="option"><label><input type="radio" name="q7_s2" value="a"> من 15 إلى 25 ألف</label></div>
+                <div class="option"><label><input type="radio" name="q7_s2" value="b"> من 18 إلى 30 ألف</label></div>
+                <div class="option"><label><input type="radio" name="q7_s2" value="c"> من 20 إلى 35 ألف</label></div>
+                <div class="option"><label><input type="radio" name="q7_s2" value="d"> من 25 إلى 40 ألف</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">8. ما هي المحاصيل التي اهتم إسماعيل بزراعتها خاصة؟</div>
+                <div class="option"><label><input type="radio" name="q8_s2" value="a"> القمح والشعير</label></div>
+                <div class="option"><label><input type="radio" name="q8_s2" value="b"> القطن الذي احتاجه السوق الأوروبية</label></div>
+                <div class="option"><label><input type="radio" name="q8_s2" value="c"> الأرز والذرة</label></div>
+                <div class="option"><label><input type="radio" name="q8_s2" value="d"> البلح والتمر</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">9. ما هي الصناعات التي أنشأها إسماعيل في الوجه القبلي؟</div>
+                <div class="option"><label><input type="radio" name="q9_s2" value="a"> مصانع النسيج فقط</label></div>
+                <div class="option"><label><input type="radio" name="q9_s2" value="b"> مصانع السكر</label></div>
+                <div class="option"><label><input type="radio" name="q9_s2" value="c"> مصانع الأسمنت</label></div>
+                <div class="option"><label><input type="radio" name="q9_s2" value="d"> مصانع الزيوت</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">10. ما هي أعظم إنجازات الخديوي إسماعيل؟</div>
+                <div class="option"><label><input type="radio" name="q10_s2" value="a"> بناء السكك الحديدية</label></div>
+                <div class="option"><label><input type="radio" name="q10_s2" value="b"> افتتاح قناة السويس</label></div>
+                <div class="option"><label><input type="radio" name="q10_s2" value="c"> بناء المدارس</label></div>
+                <div class="option"><label><input type="radio" name="q10_s2" value="d"> تطوير الجيش</label></div>
+            </div>
+
+            <!-- أسئلة صح/غلط -->
+            <div class="question-group-title">أسئلة صح/غلط (5 أسئلة):</div>
+
+            <div class="question">
+                <div class="question-text">1. كان أول اهتمام للخديوي إسماعيل هو تطوير الثروة الزراعية بتوفير وسائل الري</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf1_s2" value="true"> صح</label>
+                    <label><input type="radio" name="tf1_s2" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. إسماعيل استقل تماماً عن الدولة العثمانية</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf2_s2" value="false"> صح</label>
+                    <label><input type="radio" name="tf2_s2" value="true"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. ترعة الإبراهيمية من أعظم منشآت الري في العالم قاطبة وقت إنشاؤها</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf3_s2" value="true"> صح</label>
+                    <label><input type="radio" name="tf3_s2" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. أرسل إسماعيل بعثات عسكرية إلى فرنسا لاكتساب الخبرات الحربية</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf4_s2" value="true"> صح</label>
+                    <label><input type="radio" name="tf4_s2" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">5. جدد إسماعيل المدرسة البحرية والترسانة البحرية في الإسكندرية</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf5_s2" value="true"> صح</label>
+                    <label><input type="radio" name="tf5_s2" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <button class="btn-check-section" onclick="checkSection2()">تصحيح إجابات الخديوي إسماعيل</button>
+
+            <div class="result-box" id="result2">
+                <div class="result-score" id="score2">0/15</div>
+                <div class="result-percentage" id="percentage2">0%</div>
+                <div class="result-message" id="message2"></div>
+                <div class="nav-buttons">
+                    <button class="btn-reset" onclick="resetSection2()">إعادة الإجابة</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- القسم الثالث: الثورة العرابية -->
+        <div class="exam-section" id="section3">
+            <h2 class="section-title"><i class="fas fa-fire"></i> القسم الثالث: الثورة العرابية وآثارها</h2>
+            
+            <!-- أسئلة اختيارية -->
+            <div class="question-group-title">الأسئلة الاختيارية (10 أسئلة):</div>
+            
+            <div class="question">
+                <div class="question-text">1. من قاد الثورة العرابية؟</div>
+                <div class="option"><label><input type="radio" name="q1_s3" value="a"> محمد علي</label></div>
+                <div class="option"><label><input type="radio" name="q1_s3" value="b"> أحمد عرابي</label></div>
+                <div class="option"><label><input type="radio" name="q1_s3" value="c"> سعيد باشا</label></div>
+                <div class="option"><label><input type="radio" name="q1_s3" value="d"> الخديوي إسماعيل</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. ما هي طبيعة الثورة العرابية؟</div>
+                <div class="option"><label><input type="radio" name="q2_s3" value="a"> شعبية فقط</label></div>
+                <div class="option"><label><input type="radio" name="q2_s3" value="b"> عسكرية فقط</label></div>
+                <div class="option"><label><input type="radio" name="q2_s3" value="c"> شعبية وعسكرية</label></div>
+                <div class="option"><label><input type="radio" name="q2_s3" value="d"> دينية فقط</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. ما هي أهم أسباب الثورة العرابية؟</div>
+                <div class="option"><label><input type="radio" name="q3_s3" value="a"> الأسباب الاقتصادية والاجتماعية والسياسية</label></div>
+                <div class="option"><label><input type="radio" name="q3_s3" value="b"> الأسباب الدينية فقط</label></div>
+                <div class="option"><label><input type="radio" name="q3_s3" value="c"> الأسباب العسكرية فقط</label></div>
+                <div class="option"><label><input type="radio" name="q3_s3" value="d"> الأسباب الخارجية فقط</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. متى دخل أحمد عرابي سلك الجندية؟</div>
+                <div class="option"><label><input type="radio" name="q4_s3" value="a"> في عهد محمد علي</label></div>
+                <div class="option"><label><input type="radio" name="q4_s3" value="b"> في عهد سعيد باشا</label></div>
+                <div class="option"><label><input type="radio" name="q4_s3" value="c"> في عهد الخديوي إسماعيل</label></div>
+                <div class="option"><label><input type="radio" name="q4_s3" value="d"> في عهد توفيق</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">5. ما هي الآثار السياسية للثورة العرابية؟</div>
+                <div class="option"><label><input type="radio" name="q5_s3" value="a"> تحسين الأوضاع السياسية</label></div>
+                <div class="option"><label><input type="radio" name="q5_s3" value="b"> الاحتلال الإنجليزي لمصر</label></div>
+                <div class="option"><label><input type="radio" name="q5_s3" value="c"> استقلال مصر</label></div>
+                <div class="option"><label><input type="radio" name="q5_s3" value="d"> لم تكن لها آثار سياسية</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">6. ما هي الآثار الاقتصادية للثورة العرابية؟</div>
+                <div class="option"><label><input type="radio" name="q6_s3" value="a"> تحسين الاقتصاد المصري</label></div>
+                <div class="option"><label><input type="radio" name="q6_s3" value="b"> تدهور الاقتصاد والتدخل الأجنبي</label></div>
+                <div class="option"><label><input type="radio" name="q6_s3" value="c"> استقرار الأسعار</label></div>
+                <div class="option"><label><input type="radio" name="q6_s3" value="d"> لم تكن لها آثار اقتصادية</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">7. ما هي الآثار الاجتماعية للثورة العرابية؟</div>
+                <div class="option"><label><input type="radio" name="q7_s3" value="a"> تحسين أحوال الفلاحين</label></div>
+                <div class="option"><label><input type="radio" name="q7_s3" value="b"> تطور الوعي الاجتماعي والوطني</label></div>
+                <div class="option"><label><input type="radio" name="q7_s3" value="c"> تراجع التعليم</label></div>
+                <div class="option"><label><input type="radio" name="q7_s3" value="d"> لم تكن لها آثار اجتماعية</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">8. ما هي الآثار الثقافية للثورة العرابية؟</div>
+                <div class="option"><label><input type="radio" name="q8_s3" value="a"> تراجع الثقافة المصرية</label></div>
+                <div class="option"><label><input type="radio" name="q8_s3" value="b"> تطور الحركات الوطنية والثقافية</label></div>
+                <div class="option"><label><input type="radio" name="q8_s3" value="c"> انقطاع الحركة الثقافية</label></div>
+                <div class="option"><label><input type="radio" name="q8_s3" value="d"> لم تكن لها آثار ثقافية</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">9. ما هي نتيجة الثورة العرابية؟</div>
+                <div class="option"><label><input type="radio" name="q9_s3" value="a"> نجحت الثورة</label></div>
+                <div class="option"><label><input type="radio" name="q9_s3" value="b"> فشلت الثورة</label></div>
+                <div class="option"><label><input type="radio" name="q9_s3" value="c"> استقلت مصر</label></div>
+                <div class="option"><label><input type="radio" name="q9_s3" value="d"> لم يكن لها نتائج</label></div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">10. كيف أثرت الثورة العرابية على تطور الحركات الوطنية؟</div>
+                <div class="option"><label><input type="radio" name="q10_s3" value="a"> أدت إلى توقف الحركات الوطنية</label></div>
+                <div class="option"><label><input type="radio" name="q10_s3" value="b"> أدت إلى تطور الحركات الوطنية اللاحقة</label></div>
+                <div class="option"><label><input type="radio" name="q10_s3" value="c"> لم تؤثر على الحركات الوطنية</label></div>
+                <div class="option"><label><input type="radio" name="q10_s3" value="d"> أضعفت الحركات الوطنية</label></div>
+            </div>
+
+            <!-- أسئلة صح/غلط -->
+            <div class="question-group-title">أسئلة صح/غلط (5 أسئلة):</div>
+
+            <div class="question">
+                <div class="question-text">1. الثورة العرابية كانت ثورة شعبية وعسكرية في نفس الوقت</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf1_s3" value="true"> صح</label>
+                    <label><input type="radio" name="tf1_s3" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. نجحت الثورة العرابية في تحقيق أهدافها</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf2_s3" value="true"> صح</label>
+                    <label><input type="radio" name="tf2_s3" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. أدت الثورة العرابية إلى الاحتلال الإنجليزي لمصر</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf3_s3" value="true"> صح</label>
+                    <label><input type="radio" name="tf3_s3" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. الثورة العرابية أدت إلى تطور الوعي الوطني والشعبي</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf4_s3" value="true"> صح</label>
+                    <label><input type="radio" name="tf4_s3" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">5. الثورة العرابية أثرت على تطور الحركات الوطنية اللاحقة</div>
+                <div class="true-false-option">
+                    <label><input type="radio" name="tf5_s3" value="true"> صح</label>
+                    <label><input type="radio" name="tf5_s3" value="false"> غلط</label>
+                </div>
+            </div>
+
+            <button class="btn-check-section" onclick="checkSection3()">تصحيح إجابات الثورة العرابية</button>
+
+            <div class="result-box" id="result3">
+                <div class="result-score" id="score3">0/15</div>
+                <div class="result-percentage" id="percentage3">0%</div>
+                <div class="result-message" id="message3"></div>
+                <div class="nav-buttons">
+                    <button class="btn-reset" onclick="resetSection3()">إعادة الإجابة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>عن هذا الموقع</h5>
+                    <p>موقع تعليمي شامل يقدم معلومات مفصلة عن حياة وإنجازات الخديوي إسماعيل والي مصر من 1863 إلى 1879.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>الأقسام الرئيسية</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#economy">الحياة الاقتصادية</a></li>
+                        <li><a href="#military">الجيش والأسطول</a></li>
+                        <li><a href="#achievements">الإنجازات</a></li>
+                        <li><a href="#education">المؤسسات التعليمية</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>روابط مفيدة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="said_pasha.html">سعيد باشا</a></li>
+                        <li><a href="arabi_revolution.html">الثورة العرابية</a></li>
+                        <li><a href="ismail_khedive.html">اسماعيل باشا </a></li>
+                        <li><a href="#home"> الصفحه الرئيسيه</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026      تم الانشاء بواسطه محمد الفقي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // الإجابات الصحيحة
+        const correctAnswersS1 = {
+            q1_s1: 'b', q2_s1: 'b', q3_s1: 'c', q4_s1: 'c', q5_s1: 'a',
+            q6_s1: 'b', q7_s1: 'b', q8_s1: 'b', q9_s1: 'b', q10_s1: 'b',
+            tf1_s1: 'true', tf2_s1: 'true', tf3_s1: 'true', tf4_s1: 'true', tf5_s1: 'true'
+        };
+        
+        const correctAnswersS2 = {
+            q1_s2: 'b', q2_s2: 'c', q3_s2: 'b', q4_s2: 'b', q5_s2: 'b',
+            q6_s2: 'c', q7_s2: 'b', q8_s2: 'b', q9_s2: 'b', q10_s2: 'b',
+            tf1_s2: 'true', tf2_s2: 'true', tf3_s2: 'true', tf4_s2: 'true', tf5_s2: 'true'
+        };
+        
+        const correctAnswersS3 = {
+            q1_s3: 'b', q2_s3: 'c', q3_s3: 'a', q4_s3: 'b', q5_s3: 'b',
+            q6_s3: 'b', q7_s3: 'b', q8_s3: 'b', q9_s3: 'b', q10_s3: 'b',
+            tf1_s3: 'true', tf2_s3: 'false', tf3_s3: 'true', tf4_s3: 'true', tf5_s3: 'true'
+        };
+
+        function checkSection(sectionNum) {
+            const correctAnswers = sectionNum === 1 ? correctAnswersS1 : (sectionNum === 2 ? correctAnswersS2 : correctAnswersS3);
+            let correct = 0;
+            
+            for (const [key, value] of Object.entries(correctAnswers)) {
+                const element = document.querySelector(`input[name="${key}"]:checked`);
+                if (element && element.value === value) {
+                    correct++;
+                }
+            }
+            
+            const wrong = 15 - correct;
+            const percentage = Math.round((correct / 15) * 100);
+            
+            const resultBox = document.getElementById(`result${sectionNum}`);
+            const scoreElement = document.getElementById(`score${sectionNum}`);
+            const percentageElement = document.getElementById(`percentage${sectionNum}`);
+            const messageElement = document.getElementById(`message${sectionNum}`);
+            
+            scoreElement.textContent = `${correct}/15`;
+            percentageElement.textContent = `${percentage}%`;
+            messageElement.textContent = getResultMessage(percentage);
+            
+            resultBox.classList.add('show');
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function getResultMessage(percentage) {
+            if (percentage >= 90) return '🎉 ممتاز جداً! أنت متفوق في هذا الموضوع!';
+            if (percentage >= 80) return '👏 رائع! أداء جيد جداً!';
+            if (percentage >= 70) return '✅ جيد! استمر في الدراسة!';
+            if (percentage >= 60) return '📚 مقبول! حاول مراجعة الدروس!';
+            return '💪 تحتاج إلى مزيد من الدراسة!';
+        }
+
+        function checkSection1() { checkSection(1); }
+        function checkSection2() { checkSection(2); }
+        function checkSection3() { checkSection(3); }
+
+        function resetSection(sectionNum) {
+            const section = document.getElementById(`section${sectionNum}`);
+            const inputs = section.querySelectorAll('input[type="radio"]');
+            inputs.forEach(input => input.checked = false);
+            
+            const resultBox = document.getElementById(`result${sectionNum}`);
+            resultBox.classList.remove('show');
+        }
+
+        function resetSection1() { resetSection(1); }
+        function resetSection2() { resetSection(2); }
+        function resetSection3() { resetSection(3); }
+    </script>
+</body>
+</html>
